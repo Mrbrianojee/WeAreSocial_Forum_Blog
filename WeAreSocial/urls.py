@@ -3,6 +3,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from accounts.views import register, login, profile, logout
 import core.views
+import threads.views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -12,5 +13,10 @@ urlpatterns = [
     url(r'^login/$', login, name='login'),
     url(r'^profile/$', profile, name='profile'),
     url(r'^//logout/$', logout, name='logout'),
+    url(r'^forum/', threads.views.forum, name='forum'),
+    url(r'^threads/(?P<subject_id>\d+)/$', threads.views.threads, name='threads'),
+    url(r'^thread/(?P<thread_id>\d+)/$', threads.views.thread, name='thread'),
+    url(r'^new_thread/(?P<subject_id>\d+)/$',  threads.views.new_thread, name='new_thread'),
+    url(r'^post/new/(?P<thread_id>\d+)/$', threads.views.new_post, name='new_post'),
 ]
 

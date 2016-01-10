@@ -49,6 +49,10 @@ INSTALLED_APPS = (
     'core',
     'contact',
     'accounts',
+    'tinymce',
+    'emoticons',
+    'debug_toolbar',
+    'threads',
 )
 
 

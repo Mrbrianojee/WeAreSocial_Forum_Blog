@@ -17,3 +17,9 @@ def get_total_subject_posts(subject):
 @register.filter
 def started_time(created_at):
     return created_at  # arrow.get(created_at).humanize()
+
+
+@register.simple_tag
+def last_posted_user_name(thread):
+    posts = thread.posts.all().order_by('-created_at')
+    return posts[posts.count() - 1].user.username  # posts.last().user.username

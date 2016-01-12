@@ -53,7 +53,14 @@ INSTALLED_APPS = (
     'emoticons',
     'debug_toolbar',
     'threads',
+    'disqus',
+    'blog',
 )
+
+SITE_ID = 1
+
+# DISQUS_API_KEY = 'f7slScM4z7ba25QBwKJX7dil2xDZmA20U0N8zUEq7zyD82ZcV26WooWh5frrj4ML'
+DISQUS_WEBSITE_SHORTNAME = 'mybootcamptest'
 
 
 AUTH_USER_MODEL = 'accounts.User'

@@ -62,12 +62,10 @@ SITE_ID = 1
 # DISQUS_API_KEY = 'f7slScM4z7ba25QBwKJX7dil2xDZmA20U0N8zUEq7zyD82ZcV26WooWh5frrj4ML'
 DISQUS_WEBSITE_SHORTNAME = 'mybootcamptest'
 
-
 AUTH_USER_MODEL = 'accounts.User'
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
                            'accounts.backends.EmailAuth',
                            )
-
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -105,22 +103,14 @@ WSGI_APPLICATION = 'WeAreSocial.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}'''
 
-ALLOWED_HOSTS = ['*']
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'we_are_social',
-        'USER': 'wasdb',
-        'PASSWORD': 's0c1al',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'USER': 'root',
+        'PASSWORD': 'admin',
     }
 }
 
@@ -137,14 +127,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),  # static directory at the project level
+)
+
 MEDIA_URL = '/media/'
 
-try:
-    from localsettings import *
-except:
-    pass
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

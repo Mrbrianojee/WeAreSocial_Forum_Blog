@@ -4,6 +4,9 @@ from accounts.views import register, login, profile, logout
 import core.views
 import threads.views
 from .settings import MEDIA_ROOT
+import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -29,4 +32,5 @@ urlpatterns = [
     url(r'', include('blog.urls')),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': MEDIA_ROOT}),
 
-]
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
+                                                                                         document_root=settings.STATIC_ROOT)
